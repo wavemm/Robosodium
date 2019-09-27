@@ -1,3 +1,16 @@
+# WAVE BUILDING INSTRUCTIONS
+
+On a Linux machine, run 
+- ./install\_software.sh
+- ./download\_ndk.sh
+- ./build\_android\_libsodium.sh
+- ./build\_jni.sh
+
+This should output into `libs` a bunch of .so files. You need to copy them into the monorepo as such:
+- `cp -r libs/* <monorepo>/android/lib/src/main/jniLibs/`
+
+(note[Lincoln]: see below for the original readme.)
+
 # Robosodium
 
 Robosodium was born as a fork of [kalium-jni](https://github.com/joshjdevl/kalium-jni/). With this library you will be able to compile libsodium for Android platforms and automatically create the wrapper for the JNI.

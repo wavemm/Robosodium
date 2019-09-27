@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash -eu
 
 echo "Argument: $1\n\n"
 if [ -n "$1" ] && [ "$1" = "linux" ]; then
