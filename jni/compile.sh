@@ -1,4 +1,4 @@
-set -e
+#!/bin/sh
 
 if [ -z "$JAVA_HOME" ]; then
     echo "ERROR You should set JAVA_HOME"
@@ -46,8 +46,8 @@ if [ -n "$1" ] && [ $1 = "linux" ]; then
 #Example(x86):
 #/installs/libsodium/android-toolchain-x86/i686-linux-android/bin/gcc -I${JAVA_HOME}/include -I${JAVA_HOME}/include/linux -I/installs/libsodium/libsodium-android-x86/include sodium_wrap.c -shared -fPIC -L/installs/libsodium/libsodium-android-x86/lib -lsodium -o $jnilib
     gcc -v -w -I${JAVA_HOME}/include -I${JAVA_HOME}/include/linux sodium_wrap.c -I`pwd`/../linux_lib/include -shared -fPIC -L`pwd`/../linux_lib -lsodium -o $jnilib
-    sudo rm -f $destlib/$jnilib  
-    sudo cp $jnilib $destlib
+    rm -f $destlib/$jnilib  
+    cp $jnilib $destlib
 
 fi
 

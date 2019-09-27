@@ -1,9 +1,11 @@
 # Lincoln's updated building instructions
 
-On a Linux machine, run 
+On an Ubuntu machine, run 
 - ./install\_software.sh
+- `sudo update-alternatives --config java` and choose jdk 8
 - ./download\_ndk.sh
 - ./build\_android\_libsodium.sh
+- cd jni && ./install\_swig.sh (runs a sudo make install, fyi)
 - ./build\_jni.sh
 
 This should output into `libs` a bunch of .so files. You need to copy them into the monorepo as such, as well as the SodiumJNI file:
