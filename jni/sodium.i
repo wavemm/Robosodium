@@ -121,6 +121,9 @@ int crypto_pwhash_scryptsalsa208sha256(unsigned char * const out,
                                     unsigned long long opslimit,
                                     size_t memlimit);
 
+int crypto_box_beforenm(unsigned char *k, const unsigned char *pk,
+                        const unsigned char *sk);
+
 int crypto_box_curve25519xsalsa20poly1305_keypair(unsigned char *pk,
                                                   unsigned char *sk);
 
