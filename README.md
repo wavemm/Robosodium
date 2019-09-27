@@ -1,4 +1,4 @@
-# WAVE BUILDING INSTRUCTIONS
+# Lincoln's updated building instructions
 
 On a Linux machine, run 
 - ./install\_software.sh
@@ -6,10 +6,20 @@ On a Linux machine, run
 - ./build\_android\_libsodium.sh
 - ./build\_jni.sh
 
-This should output into `libs` a bunch of .so files. You need to copy them into the monorepo as such:
-- `cp -r libs/* <monorepo>/android/lib/src/main/jniLibs/`
+This should output into `libs` a bunch of .so files. You need to copy them into the monorepo as such, as well as the SodiumJNI file:
+- `export MONOREPO=~/w/monorepo` (edit this path)
+- `cp -r libs/* $MONOREPO/android/lib/src/main/jniLibs/`
+- `cp src/main/java/org/abstractj/kalium/SodiumJNI.java $MONOREPO/android/lib/src/main/java/org/abstractj/kalium/`
 
-(note[Lincoln]: see below for the original readme.)
+What I did to bring this into Wave's codebase was to vendor all the Java files,
+but pre-compile the native library on my machine, because I didn't want to do
+an ndk build process for our whole team.
+
+To change the functions exported to the JNI, edit jni/sodium.i.
+
+Below is the original readme.
+
+-------
 
 # Robosodium
 
